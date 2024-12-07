@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 
@@ -235,6 +236,7 @@ const VisaDetails = () => {
                   </div>
           
                   <button
+                  onClick={() => document.getElementById("my_modal_5").close()}
                     className="w-full py-3 px-6 bg-[#e20934] text-white rounded-lg font-semibold transition duration-500 ease-in-out relative overflow-hidden group text-center">
             
                     <span className="absolute inset-0 bg-gradient-to-r from-[#e20934] to-black opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>

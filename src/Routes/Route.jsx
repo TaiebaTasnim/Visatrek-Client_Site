@@ -72,7 +72,7 @@ import ErrorPage from "../Pages/ErrorPage";
                   element:<PrivateRoute>
                            <MyApplications></MyApplications>
                           </PrivateRoute>,
-                  loader:()=>fetch("http://localhost:4000/application")
+                  //loader:()=>fetch("http://localhost:4000/application")
             },
             
         ]
