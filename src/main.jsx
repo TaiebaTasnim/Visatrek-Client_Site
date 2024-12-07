@@ -7,6 +7,9 @@ import Route from "./Routes/Route.jsx"
 import AuthProvider from './Provider/AuthProvider.jsx'
 import "aos/dist/aos.css"
 
+import "react-tooltip/dist/react-tooltip.css";
+
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
