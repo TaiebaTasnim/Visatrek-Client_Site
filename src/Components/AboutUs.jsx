@@ -33,11 +33,11 @@ const AboutUs = () => {
         <div className="grid md:grid-cols-2 gap-12">
           {/* Image Section */}
           <div className="p-4 border-[#e20934] border-2 rounded-lg "data-aos="fade-right">
-          <div >
+          <div className="h-full" >
             <img
               src="https://i.ibb.co.com/BySrCdw/about.jpg"
               alt="About Us"
-              className="rounded-lg shadow-md object-cover w-full"
+              className="rounded-lg shadow-md object-cover w-full h-full"
             />
           </div>
 

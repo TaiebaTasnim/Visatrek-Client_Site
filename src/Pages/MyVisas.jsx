@@ -197,8 +197,8 @@ const MyVisas = () => {
   </div>
 
   {/* Update Visa Modal */}
-  <dialog id="my_modal_5" className="modal">
-    <div className="modal-box bg-black text-white border border-[#e20934]">
+  <dialog id="my_modal_5" className="modal  mx-auto container">
+    <div className="modal-box  bg-black text-white border border-[#e20934]">
       <h3 className="font-bold text-lg mb-4 text-[#e20934]">Update Visa</h3>
       <form onSubmit={handleUpdateSubmit}>
         <div className="mb-4">
@@ -208,7 +208,7 @@ const MyVisas = () => {
             name="country_name"
             value={formData.country_name || ""}
             onChange={handleChange}
-            className="w-full px-4 py-2 rounded bg-gray-700 text-white"
+            className="w-full px-4 py-2 rounded bg-gray-700 text-white "
           />
         </div>
         <div className="mb-4">

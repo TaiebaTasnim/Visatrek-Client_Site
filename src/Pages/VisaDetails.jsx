@@ -173,7 +173,7 @@ const VisaDetails = () => {
             </div>
           
             {/* Modal for Applying */}
-            <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+            <dialog id="my_modal_5" className="modal mx-auto container  modal-middle">
               <div className="modal-box bg-black text-white border border-[#e20934]">
                 <form onSubmit={handleApply}>
                   <h2 className="text-2xl font-semibold mb-4 text-[#e20934]">
