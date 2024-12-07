@@ -26,24 +26,39 @@ const VisaDetails = () => {
             console.log(email, firstName, lastName, appliedDate, fee, processing_time, myVisaMail)
             const newApplication = { email, firstName, lastName, appliedDate, fee, country, country_img, validity, visa_type, processing_time, application_method, myVisaMail }
 
-            try {
+            
                   // Use fetch to send the form data to the backend
-                  const response = await fetch('http://localhost:4000/application', {
+                  fetch('http://localhost:4000/application', {
                         method: 'POST',
                         headers: {
                               'Content-Type': 'application/json',
                         },
                         body: JSON.stringify(newApplication),
-                  });
-                  if (response.ok) {
-                        alert('Visa added successfully!');
-                        e.target.reset;
-                  } else {
-                        alert('Failed to add visa!');
-                  }
-            } catch (error) {
-                  console.error('Error adding visa:', error);
-            }
+                  })
+                  .then(res=>res.json())
+            .then(data=>{
+                console.log(data)
+                if(data.insertedId)
+                {
+                    Swal.fire({
+                        title: "Visa Applied!",
+                        text: "Visa application has been added successfully.",
+                        icon: "success",
+                      });
+                     
+
+
+                }
+            })
+            //       if (response.ok) {
+            //             alert('Visa added successfully!');
+            //             e.target.reset;
+            //       } else {
+            //             alert('Failed to add visa!');
+            //       }
+            // } catch (error) {
+            //       console.error('Error adding visa:', error);
+            // }
 
       }
 
