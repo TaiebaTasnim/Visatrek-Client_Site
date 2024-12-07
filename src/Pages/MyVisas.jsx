@@ -103,7 +103,7 @@ const MyVisas = () => {
                                                 console.log(data)
                                                 Swal.fire({
                                                       title: "Deleted!",
-                                                      text: "Your file has been deleted.",
+                                                      text: "Your visa has been deleted.",
                                                       icon: "success"
                                                 });
 
