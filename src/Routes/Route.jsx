@@ -12,11 +12,14 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import VisaDetails from "../Pages/VisaDetails";
 import MyVisas from "../Pages/MyVisas";
 import MyApplications from "../Pages/MyApplications";
+import ErrorPage from "../Pages/ErrorPage";
 
     const Route = createBrowserRouter([
       {
         path: "/",
-        element: <Root></Root> ,
+        element: <Root></Root>,
+        //loader:()=>fetch("http://localhost:4000/users"),
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                   path:"/",
@@ -33,12 +36,22 @@ import MyApplications from "../Pages/MyApplications";
             },
             {
                   path:"/addVisa",
-                  element:<AddVisa></AddVisa>
+                  element:<PrivateRoute>
+                        <AddVisa></AddVisa>
+                  
+                        </PrivateRoute>,
             },
             {
                   path:"/allVisa",
                   element:<AllVisa></AllVisa>,
                   loader:()=>fetch("http://localhost:4000/visas1")
+            },
+            {
+                  path:"/visaDetails/id",
+                  element:<PrivateRoute>
+                           <VisaDetails></VisaDetails>
+                          </PrivateRoute>,
+                  loader:({params})=>fetch(`http://localhost:4000/visas4/${params.id}`)
             },
             {
                   path:"/visaDetails/:id",
@@ -61,6 +74,7 @@ import MyApplications from "../Pages/MyApplications";
                           </PrivateRoute>,
                   loader:()=>fetch("http://localhost:4000/application")
             },
+            
         ]
       },
     ]);

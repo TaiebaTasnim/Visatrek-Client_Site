@@ -43,18 +43,18 @@ const AuthProvider = ({ children }) => {
 
       }
 
-      // const profileUpdate = (updatedData) => {
-      //       //setLoading(true)
-      //       return updateProfile(auth.currentUser, updatedData)
-      // }
+      const profileUpdate = (updatedData) => {
+            //setLoading(true)
+            return updateProfile(auth.currentUser, updatedData)
+      }
 
       const authinfo = {
             createUser,
              signUser,
              user,
              signout,
-            // profileUpdate,
-             loading,
+            profileUpdate,
+            loading,
             setUser,
 
 

@@ -1,184 +1,335 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLoaderData } from "react-router-dom";
 import ThemeControler from "./ThemeControler";
 import { AuthContext } from "../Provider/AuthProvider";
-import { useContext } from "react";
+import { useContext, useState } from "react";
+import icon from '../assets/icon.png'
 
 
 
 const Header = () => {
-      const {user,signout}=useContext(AuthContext)
-      const links =
-       <>
-       <nav className="">
-  <ul className="flex items-center space-x-6 p-4">
-    <li>
-      <NavLink to="/"  className={({ isActive }) =>
+  const { user, signout } = useContext(AuthContext)
+
+  console.log(user)
+
+  const links =
+    <>
+      <nav className="">
+        <ul className="flex items-center  p-0">
+          <li>
+            <NavLink to="/" className={({ isActive }) =>
               isActive
-                ? "bg-white text-blue-600 px-4 py-2 rounded"
-                : "text-gray-700 hover:text-blue-600 px-4 py-2"
+                ? " text-[#E3F2FD] px-4 py-2 "
+                : "text-white  "
             } >
-        Home
-      </NavLink>
-    </li>
-    <li className="relative">
-      <details className="group">
-        <summary className="cursor-pointer text-gray-700 hover:text-blue-600">
-          <NavLink to="/allVisa"
-          className={({ isActive }) =>
-            isActive
-              ? "bg-white text-blue-600 px-4 py-2 rounded"
-              : "text-gray-700 hover:text-blue-600 px-4 py-2"
-          }
-          >
-            All Visas</NavLink>
-        </summary>
-        <ul className="absolute left-0 top-full mt-2 w-40 bg-white shadow-md border rounded-md z-50 flex flex-col gap-2">
+              Home
+            </NavLink>
+          </li>
+          <li className="relative">
+            <details className="group">
+              <summary className="cursor-pointer" >
+                <NavLink to="/allVisa"
+                  className={({ isActive }) =>
+                    isActive
+                      ? " text-[#E3F2FD] px-4 py-2"
+                      : "text-white px-4 py-2"
+                  }
+                >
+                  All Visas</NavLink>
+              </summary>
+              <ul className="absolute left-0 top-full mt-2 w-40 bg-white shadow-md border rounded-md z-50 flex flex-col gap-2">
+                <li>
+                  <NavLink
+                    to="/student-visa"
+                    className={({ isActive }) =>
+                      isActive
+                        ? " text-[#E3F2FD] px-4 py-2 rounded"
+                        : "text-[#e20934]  px-4 py-2"
+                    }
+
+                  >
+                    Student Visa
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/tourist-visa"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-[#E3F2FD]  px-4 py-2 rounded"
+                        : "text-[#e20934]  px-4 py-2"
+                    }
+
+                  >
+                    Tourist Visa
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/business-visa"
+                    className={({ isActive }) =>
+                      isActive
+                        ? " text-[#E3F2FD] px-4 py-2 rounded"
+                        : "text-[#e20934]  px-4 py-2"
+                    }
+
+                  >
+                    Business Visa
+                  </NavLink>
+                </li>
+              </ul>
+            </details>
+          </li>
           <li>
-            <NavLink
-              to="/student-visa"
-              className={({ isActive }) =>
-                  isActive
-                    ? "bg-white text-blue-600 px-4 py-2 rounded"
-                    : "text-gray-700 hover:text-blue-600 px-4 py-2"
-                }
-              
-            >
-              Student Visa
+            <NavLink to="/addVisa" className={({ isActive }) =>
+              isActive
+                ? " text-[#E3F2FD] px-4 py-2 rounded"
+                : "text-white  px-4 py-2"
+            }>
+              Add Visa
             </NavLink>
           </li>
           <li>
             <NavLink
-              to="/tourist-visa"
+              to={`myVisas/${user?.email}`}
               className={({ isActive }) =>
-                  isActive
-                    ? "bg-white text-blue-600 px-4 py-2 rounded"
-                    : "text-gray-700 hover:text-blue-600 px-4 py-2"
-                }
-              
+                isActive
+                  ? " text-[#E3F2FD] px-4 py-2 rounded"
+                  : "text-white  px-4 py-2"
+              }
+
             >
-              Tourist Visa
+              My Visas
             </NavLink>
           </li>
-          <li>
+          <li className="">
             <NavLink
-              to="/business-visa"
+              to="/myVisaApp"
               className={({ isActive }) =>
-                  isActive
-                    ? "bg-white text-blue-600 px-4 py-2 rounded"
-                    : "text-gray-700 hover:text-blue-600 px-4 py-2"
-                }
-              
+                isActive
+                  ? " text-[#E3F2FD]   rounded"
+                  : "text-white   "
+              }
+
             >
-              Business Visa
+              My Applications
             </NavLink>
           </li>
         </ul>
-      </details>
-    </li>
-    <li>
-      <NavLink to="/addVisa"  className={({ isActive }) =>
-              isActive
-                ? "bg-white text-blue-600 px-4 py-2 rounded"
-                : "text-gray-700 hover:text-blue-600 px-4 py-2"
-            }>
-        Add Visa
-      </NavLink>
-    </li>
-    <li>
-      <NavLink
-        to={`myVisas/${user?.email}`}
-        className={({ isActive }) =>
-            isActive
-              ? "bg-white text-blue-600 px-4 py-2 rounded"
-              : "text-gray-700 hover:text-blue-600 px-4 py-2"
-          }
-        
-      >
-        My Added Visas
-      </NavLink>
-    </li>
-    <li>
-      <NavLink
-        to="/myVisaApp"
-        className={({ isActive }) =>
-            isActive
-              ? "bg-white text-blue-600 px-4 py-2 rounded"
-              : "text-gray-700 hover:text-blue-600 px-4 py-2"
-          }
-        
-      >
-        My Visa Applications
-      </NavLink>
-    </li>
-  </ul>
-</nav>
+      </nav>
 
-       
 
-          
+
+
     </>
 
-     const handlesignout=()=>
-      {
-         signout()
-         .then((result)=>result.user)
-         .catch(error=>error.message)
-      }
-      return (
-            <div>
-                  <div className="navbar bg-base-100">
-                        <div className="navbar-start">
-                              <div className="dropdown">
-                                    <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                                          <svg
-                                                xmlns="http://www.w3.org/2000/svg"
-                                                className="h-5 w-5"
-                                                fill="none"
-                                                viewBox="0 0 24 24"
-                                                stroke="currentColor">
-                                                <path
-                                                      strokeLinecap="round"
-                                                      strokeLinejoin="round"
-                                                      strokeWidth="2"
-                                                      d="M4 6h16M4 12h8m-8 6h16" />
-                                          </svg>
-                                    </div>
-                                    <ul
-                                          tabIndex={0}
-                                          className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                                          {links}
-                                    </ul>
-                              </div>
-                              <a className="btn btn-ghost text-xl">Visatrek</a>
-                        </div>
-                        <div className="navbar-center hidden lg:flex">
-                              <ul className="menu menu-horizontal px-1">
-                                    <div className="flex gap-5 text-[16px] text-[#0B0B0BB3] font-medium">
-                                    {links}
+  const handlesignout = () => {
+    signout()
+      .then((result) => result.user)
+      .catch(error => error.message)
+  }
+  return (
+    <div>
+      <div>
+        <div className="navbar container mx-auto w-[90%]   text-white ">
+          <div className="navbar-start">
+            <div className="dropdown">
+              <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden relative">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor">
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h8m-8 6h16" />
+                </svg>
+              </div>
+              <ul
+                tabIndex={0}
+                className="absolute left-0 top-full menu menu-sm dropdown-content bg-white text-[#e20934] rounded-box z-50 mt-3 w-48 p-3 shadow-lg ">
+                  
+                  <nav className="">
+        <ul className="flex flex-col justify-center items-center  font-semibold  p-0">
+          <li className="">
+            <NavLink to="/" className={({ isActive }) =>
+              isActive
+                ? " text-gray-600 px-4 py-2 text-[16px]"
+                : "text-[#e20934]  px-4 py-2 text-[16px] "
+            } >
+              Home
+            </NavLink>
+          </li>
+          <li className="relative">
+            <details className="group">
+              <summary className="cursor-pointer" >
+                <NavLink to="/allVisa"
+                  className={({ isActive }) =>
+                    isActive
+                      ? " text-gray-600 px-4 py-2 text-[16px]"
+                      : "text-[#e20934]  px-4 py-2 text-[16px]"
+                  }
+                >
+                  All Visas</NavLink>
+              </summary>
+              <ul className="absolute left-0 top-full mt-2 w-40 bg-white shadow-md border rounded-md z-50 flex flex-col gap-2">
+                <li>
+                  <NavLink
+                    to="/student-visa"
+                    className={({ isActive }) =>
+                      isActive
+                        ? " text-gray-600 px-4 py-2 rounded "
+                        : "text-[#e20934]  px-4 py-2 "
+                    }
 
-                                    </div>
-                                    
+                  >
+                    Student Visa
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/tourist-visa"
+                    className={({ isActive }) =>
+                      isActive
+                        ? "text-gray-600  px-4 py-2 rounded "
+                        : "text-[#e20934]  px-4 py-2 "
+                    }
 
-                              </ul>
-                        </div>
-                        <div className="navbar-end">
-                        {
-                              
-                                    user ? <button onClick={handlesignout} className="py-3 rounded-lg px-4 bg-[#086398] text-white"><Link to="/">Sign Out</Link></button>
-                                         :<div>
-                                           <button className="py-3 rounded-lg px-4 bg-[#086398] text-white"><Link to="/login">Log In</Link></button>
-                                           <button className="py-3 rounded-lg px-4 bg-[#086398] text-white"><Link to="/register">Register</Link></button>
-                                         </div>
-                                  
-                        }
-                              
-                              
-                              <ThemeControler></ThemeControler>
-                        </div>
-                  </div>
+                  >
+                    Tourist Visa
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to="/business-visa"
+                    className={({ isActive }) =>
+                      isActive
+                        ? " text-gray-600 px-4 py-2 rounded "
+                        : "text-[#e20934]  px-4 py-2 "
+                    }
+
+                  >
+                    Business Visa
+                  </NavLink>
+                </li>
+              </ul>
+            </details>
+          </li>
+          <li>
+            <NavLink to="/addVisa" className={({ isActive }) =>
+              isActive
+                ? " text-gray-600 px-4 py-2 rounded text-[16px]"
+                : "text-[#e20934]  px-4 py-2 text-[16px]"
+            }>
+              Add Visa
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to={`myVisas/${user?.email}`}
+              className={({ isActive }) =>
+                isActive
+                  ? " text-gray-600 px-4 py-2 rounded text-[16px]"
+                  : "text-[#e20934]  px-4 py-2 text-[16px]"
+              }
+
+            >
+              My Visas
+            </NavLink>
+          </li>
+          <li className="">
+            <NavLink
+              to="/myVisaApp"
+              className={({ isActive }) =>
+                isActive
+                  ? " text-gray-600 px-4 py-2  rounded text-[16px]"
+                  : "text-[#e20934]  text-center text-[16px] "
+              }
+
+            >
+              My Applications
+            </NavLink>
+          </li>
+        </ul>
+      </nav>
+
+                  
+                
+              </ul>
+            </div>
+            <div className="flex items-center gap-1">
+              {/* <img src={icon} alt="" className="w-4 h-4 hidden md:block" /> */}
+              <a className=" normal-case text-2xl font-bold tracking-wide font-display ">
+                Visatrek
+              </a>
 
             </div>
-      );
+
+          </div>
+          <div className="navbar-center hidden lg:flex">
+            <ul className="menu menu-horizontal ">
+              <div className="flex  text-[18px] font-semibold">
+                {links}
+              </div>
+            </ul>
+          </div>
+          <div className="navbar-end gap-2">
+            {user ? (
+              <div className="flex items-center gap-1">
+                <img
+                  src={user.photoURL}
+                  alt="user photo"
+                  className="w-9 h-9 border-2 border-white rounded-full object-cover"
+                />
+                <button onClick={handlesignout} className="py-2 px-2 text-center bg-white text-[#e20934] rounded-lg font-semibold transition duration-500 ease-in-out relative overflow-hidden group">
+                  <span className="absolute inset-0 bg-gradient-to-r from-[#e20934] to-black opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
+                  <span className="relative group-hover:text-white transition duration-500 ease-in-out">
+                    <Link to="/">SignOut</Link>
+                  </span>
+                </button>
+                {/* <button
+                  
+                  className="py-2 px-5 bg-white text-[#e20934] rounded-lg font-semibold  transition duration-300">
+                  <Link to="/">Sign Out</Link>
+                </button> */}
+              </div>
+            ) : (
+              <div className="flex gap-1 items-center">
+                <button className="py-2 px-2 bg-white text-[#e20934] rounded-lg font-semibold transition duration-500 ease-in-out relative overflow-hidden group">
+                  <span className="absolute inset-0 bg-gradient-to-r from-[#e20934] to-black opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
+                  <span className="relative group-hover:text-white transition duration-500 ease-in-out">
+                    <Link to="/login">LogIn</Link>
+                  </span>
+                </button>
+
+
+                {/* <button className="py-2 px-3 bg-white text-[#e20934] rounded-lg font-semibold  transition duration-300">
+            <Link to="/login">LogIn</Link>
+          </button> */}
+                <button className="py-2 px-2 bg-white text-[#e20934] rounded-lg font-semibold transition duration-500 ease-in-out relative overflow-hidden group">
+                  <span className="absolute inset-0 bg-gradient-to-r from-[#e20934] to-black opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
+                  <span className="relative group-hover:text-white transition duration-500 ease-in-out">
+                    <Link to="/register">Register</Link>
+                  </span>
+                </button>
+              </div>
+            )}
+            <div className="hidden md:block w-0 ">
+            <ThemeControler ></ThemeControler>
+
+            </div>
+            
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  );
 };
 
 export default Header;
+
+

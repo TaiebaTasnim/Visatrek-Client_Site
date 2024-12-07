@@ -1,5 +1,8 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
+import { Link } from "react-router-dom";
+import { FaFlag } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 const AddVisa = () => {
       const {user}=useContext(AuthContext)
@@ -49,173 +52,254 @@ const AddVisa = () => {
         const newVisaData = { ...formData, email};
         console.log(newVisaData)
 
-        try {
+        
             // Use fetch to send the form data to the backend
-            const response = await fetch('http://localhost:4000/visas', {
+             fetch('http://localhost:4000/visas', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(newVisaData),
-            });
+            })
+            .then(res=>res.json())
+            .then(data=>{
+                console.log(data)
+                if(data.insertedId)
+                {
+                    Swal.fire({
+                        title: "Visa Added!",
+                        text: "Visa information has been added successfully.",
+                        icon: "success",
+                      });
+                      setFormData({
+                        country_image: "",
+                        country_name: "",
+                        visa_type: "Tourist Visa",
+                        processing_time: "",
+                        required_documents: [],
+                        description: "",
+                        age_restriction: "",
+                        fee: "",
+                        validity: "",
+                        application_method: "",
+                    });
+
+
+                }
+            })
+
 
             // Handle the response
-            if (response.ok) {
-                alert('Visa added successfully!');
-                console.log('Response from server:', await response.json());
-                setFormData({
-                    country_image: "",
-                    country_name: "",
-                    visa_type: "Tourist Visa",
-                    processing_time: "",
-                    required_documents: [],
-                    description: "",
-                    age_restriction: "",
-                    fee: "",
-                    validity: "",
-                    application_method: "",
-                });
-            } else {
-                alert('Failed to add visa!');
-            }
-        } catch (error) {
-            console.error('Error adding visa:', error);
-        }
+            // if (response.ok) {
+                
+
+            //     // alert('Visa added successfully!');
+            //     // console.log('Response from server:', await response.json());
+                
+            // } else {
+            //     Swal.fire({
+            //         icon: "error",
+            //         title: "Oops...",
+            //         text: "Failed to add visa!",
+            //         //footer: '<a href="#">Why do I have this issue?</a>'
+            //       });
+            // }
+        
     };
 
     return (
-        <div className="max-w-lg mx-auto bg-white p-6 shadow-md rounded-md">
-            <h2 className="text-2xl font-bold mb-4 text-center">Add Visa</h2>
-            <form onSubmit={handleSubmit}>
-                {/* Country Image */}
-                <label className="block mb-2 font-semibold">Country Image URL</label>
-                <input
-                    type="text"
-                    name="country_image"
-                    value={formData.country_image}
-                    onChange={handleChange}
-                    className="w-full border px-3 py-2 rounded mb-4"
-                    required
-                />
+        
+       <div className="bg-black">
+        <div className="max-w-4xl mx-auto bg-black text-white p-8 shadow-lg rounded-md">
+  <h2 className="text-3xl font-bold mb-6 text-center text-[#e20934] flex items-center justify-center gap-2">
+    <span className="material-icons"></span> Add Visa
+  </h2>
+  <form onSubmit={handleSubmit} className="space-y-6">
+    {/* Row 1: Country Image and Name */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      {/* Country Image */}
+      <div>
+        <label className="font-semibold flex items-center gap-2 mb-2">
+          <span className="material-icons text-[#e20934]"></span> Country Image URL
+        </label>
+        <input
+          type="text"
+          name="country_image"
+          value={formData.country_image}
+          onChange={handleChange}
+          className="w-full border border-[#e20934] bg-transparent px-3 py-2 rounded text-white focus:outline-none focus:border-white"
+          required
+        />
+      </div>
 
-                {/* Country Name */}
-                <label className="block mb-2 font-semibold">Country Name</label>
-                <input
-                    type="text"
-                    name="country_name"
-                    value={formData.country_name}
-                    onChange={handleChange}
-                    className="w-full border px-3 py-2 rounded mb-4"
-                    required
-                />
+      {/* Country Name */}
+      <div>
+        <label className="font-semibold flex items-center gap-2 mb-2">
+          <span className="material-icons text-[#e20934]"></span> Country Name
+        </label>
+        <input
+          type="text"
+          name="country_name"
+          value={formData.country_name}
+          onChange={handleChange}
+          className="w-full border border-[#e20934] bg-transparent px-3 py-2 rounded text-white focus:outline-none focus:border-white"
+          required
+        />
+      </div>
+    </div>
 
-                {/* Visa Type */}
-                <label className="block mb-2 font-semibold">Visa Type</label>
-                <select
-                    name="visa_type"
-                    value={formData.visa_type}
-                    onChange={handleChange}
-                    className="w-full border px-3 py-2 rounded mb-4"
-                    required
-                >
-                    <option value="Tourist Visa">Tourist Visa</option>
-                    <option value="Student Visa">Student Visa</option>
-                    <option value="Official Visa">Official Visa</option>
-                </select>
+    {/* Row 2: Visa Type and Processing Time */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      {/* Visa Type */}
+      <div>
+        <label className="font-semibold flex items-center gap-2 mb-2">
+          <span className="material-icons text-[#e20934]"></span> Visa Type
+        </label>
+        <select
+          name="visa_type"
+          value={formData.visa_type}
+          onChange={handleChange}
+          className="w-full  border border-[#e20934] bg-black px-3 py-2 rounded text-white focus:outline-none focus:border-white "
+          required
+        >
+           
+            <option value="Tourist Visa" className="">Tourist Visa</option>
+          <option value="Student Visa">Student Visa</option>
+          <option value="Official Visa">Official Visa</option>
 
-                {/* Processing Time */}
-                <label className="block mb-2 font-semibold">Processing Time</label>
-                <input
-                    type="text"
-                    name="processing_time"
-                    value={formData.processing_time}
-                    onChange={handleChange}
-                    className="w-full border px-3 py-2 rounded mb-4"
-                    required
-                />
+            
+          
+        </select>
+      </div>
 
-                {/* Required Documents */}
-                <label className="block mb-2 font-semibold">Required Documents</label>
-                <div className="mb-4">
-                    {documentOptions.map((doc, idx) => (
-                        <div key={idx}>
-                            <label className="flex items-center gap-2">
-                                <input
-                                    type="checkbox"
-                                    value={doc}
-                                    checked={formData.required_documents.includes(doc)}
-                                    onChange={handleCheckboxChange}
-                                />
-                                {doc}
-                            </label>
-                        </div>
-                    ))}
-                </div>
+      {/* Processing Time */}
+      <div>
+        <label className="font-semibold flex items-center gap-2 mb-2">
+          <span className="material-icons text-[#e20934]"></span> Processing Time
+        </label>
+        <input
+          type="text"
+          name="processing_time"
+          value={formData.processing_time}
+          onChange={handleChange}
+          className="w-full border border-[#e20934] bg-transparent px-3 py-2 rounded text-white focus:outline-none focus:border-white"
+          required
+        />
+      </div>
+    </div>
 
-                {/* Description */}
-                <label className="block mb-2 font-semibold">Description</label>
-                <textarea
-                    name="description"
-                    value={formData.description}
-                    onChange={handleChange}
-                    className="w-full border px-3 py-2 rounded mb-4"
-                    rows="4"
-                    required
-                ></textarea>
+    {/* Row 3: Required Documents */}
+    <div>
+      <label className="font-semibold flex items-center gap-2 mb-2">
+        <span className="material-icons text-[#e20934]"></span> Required Documents
+      </label>
+      <div className="grid grid-cols-2 gap-4">
+        {documentOptions.map((doc, idx) => (
+          <div key={idx} className="flex items-center gap-2">
+            <input
+              type="checkbox"
+              value={doc}
+              checked={formData.required_documents.includes(doc)}
+              onChange={handleCheckboxChange}
+              className="accent-[#e20934]"
+            />
+            <span>{doc}</span>
+          </div>
+        ))}
+      </div>
+    </div>
 
-                {/* Age Restriction */}
-                <label className="block mb-2 font-semibold">Age Restriction</label>
-                <input
-                    type="number"
-                    name="age_restriction"
-                    value={formData.age_restriction}
-                    onChange={handleChange}
-                    className="w-full border px-3 py-2 rounded mb-4"
-                    required
-                />
+    {/* Row 4: Description */}
+    <div>
+      <label className="font-semibold flex items-center gap-2 mb-2">
+        <span className="material-icons text-[#e20934]"></span> Description
+      </label>
+      <textarea
+        name="description"
+        value={formData.description}
+        onChange={handleChange}
+        className="w-full border border-[#e20934] bg-transparent px-3 py-2 rounded text-white focus:outline-none focus:border-white"
+        rows="4"
+        required
+      ></textarea>
+    </div>
 
-                {/* Fee */}
-                <label className="block mb-2 font-semibold">Fee</label>
-                <input
-                    type="number"
-                    name="fee"
-                    value={formData.fee}
-                    onChange={handleChange}
-                    className="w-full border px-3 py-2 rounded mb-4"
-                    required
-                />
+    {/* Row 5: Age Restriction, Fee, Validity, and Application Method */}
+    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+      {/* Age Restriction */}
+      <div>
+        <label className="font-semibold flex items-center gap-2 mb-2">
+          <span className="material-icons text-[#e20934]"></span> Age Restriction
+        </label>
+        <input
+          type="number"
+          name="age_restriction"
+          value={formData.age_restriction}
+          onChange={handleChange}
+          className="w-full border border-[#e20934] bg-transparent px-3 py-2 rounded text-white focus:outline-none focus:border-white"
+          required
+        />
+      </div>
 
-                {/* Validity */}
-                <label className="block mb-2 font-semibold">Validity</label>
-                <input
-                    type="text"
-                    name="validity"
-                    value={formData.validity}
-                    onChange={handleChange}
-                    className="w-full border px-3 py-2 rounded mb-4"
-                    required
-                />
+      {/* Fee */}
+      <div>
+        <label className="font-semibold flex items-center gap-2 mb-2">
+          <span className="material-icons text-[#e20934]"></span> Fee
+        </label>
+        <input
+          type="number"
+          name="fee"
+          value={formData.fee}
+          onChange={handleChange}
+          className="w-full border border-[#e20934] bg-transparent px-3 py-2 rounded text-white focus:outline-none focus:border-white"
+          required
+        />
+      </div>
 
-                {/* Application Method */}
-                <label className="block mb-2 font-semibold">Application Method</label>
-                <input
-                    type="text"
-                    name="application_method"
-                    value={formData.application_method}
-                    onChange={handleChange}
-                    className="w-full border px-3 py-2 rounded mb-4"
-                    required
-                />
+      {/* Validity */}
+      <div>
+        <label className="font-semibold flex items-center gap-2 mb-2">
+          <span className="material-icons text-[#e20934]"></span> Validity
+        </label>
+        <input
+          type="text"
+          name="validity"
+          value={formData.validity}
+          onChange={handleChange}
+          className="w-full border border-[#e20934] bg-transparent px-3 py-2 rounded text-white focus:outline-none focus:border-white"
+          required
+        />
+      </div>
 
-                {/* Submit Button */}
-                <button
-                    type="submit"
-                    className="bg-blue-600 text-white px-4 py-2 rounded w-full hover:bg-blue-700"
-                >
-                    Add Visa
+      {/* Application Method */}
+      <div>
+        <label className="font-semibold flex items-center gap-2 mb-2">
+          <span className="material-icons text-[#e20934]"></span> Application Method
+        </label>
+        <input
+          type="text"
+          name="application_method"
+          value={formData.application_method}
+          onChange={handleChange}
+          className="w-full border border-[#e20934] bg-transparent px-3 py-2 rounded text-white focus:outline-none focus:border-white"
+          required
+        />
+      </div>
+    </div>
+
+    {/* Submit Button */}
+    <button className="w-full py-2 px-2 bg-[#e20934] text-white rounded-lg font-semibold transition duration-500 ease-in-out relative overflow-hidden group">
+                  <span className="absolute inset-0 bg-gradient-to-r from-[#e20934] to-black opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
+                  <span className="relative group-hover:text-white transition duration-500 ease-in-out">
+                    <Link to="/allVisa">Add Visa</Link>
+                  </span>
                 </button>
-            </form>
-        </div>
+  </form>
+</div>
+
+       </div>
+
+        
     );
 };
 

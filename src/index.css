@@ -3,12 +3,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap');
 
 a.active{
-  color:rgb(8,99,152);
+  color:rgb(227,242,253);
   font-weight: 600;
-  background-color: white
+  
 
   
 } 
+
+html,body{overflow-x: hidden}
 
 @tailwind base;
 @tailwind components;

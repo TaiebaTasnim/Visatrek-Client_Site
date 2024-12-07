@@ -9,11 +9,13 @@ export default {
       fontFamily:{
         display:["Roboto Slab", "serif"],
         style:["Inter", "sans-serif"]
-      }
-    },
+      },
+      
+       }
   },
   plugins: [
     require('daisyui'),
   ],
 }
+
 
