@@ -22,7 +22,7 @@ const Header = () => {
   const links =
     <>
       <nav className="">
-        <ul className="flex items-center  p-0">
+        <ul className="flex items-center text-[16px]  pr-4">
           <li>
             <NavLink to="/" className={({ isActive }) =>
               isActive
@@ -32,7 +32,16 @@ const Header = () => {
               Home
             </NavLink>
           </li>
-          <li className="relative">
+          <li>
+            <NavLink to="/allVisa" className={({ isActive }) =>
+              isActive
+                ? " text-[#E3F2FD] px-4 py-2 "
+                : "text-white  "
+            } >
+              All Visa
+            </NavLink>
+          </li>
+          {/* <li className="relative">
             <details className="group">
               <summary className="cursor-pointer" >
                 <NavLink to="/allVisa"
@@ -47,7 +56,7 @@ const Header = () => {
               <ul className="absolute left-0 top-full mt-2 w-40 bg-white shadow-md border rounded-md z-50 flex flex-col gap-2">
                 <li>
                   <NavLink
-                    to="/student-visa"
+                    to="/filterVisa/visaType=Student-Visa"
                     className={({ isActive }) =>
                       isActive
                         ? " text-[#E3F2FD] px-4 py-2 rounded"
@@ -60,7 +69,7 @@ const Header = () => {
                 </li>
                 <li>
                   <NavLink
-                    to="/tourist-visa"
+                    to="/filterVisa?visaType=Tourist-Visa"
                     className={({ isActive }) =>
                       isActive
                         ? "text-[#E3F2FD]  px-4 py-2 rounded"
@@ -73,7 +82,7 @@ const Header = () => {
                 </li>
                 <li>
                   <NavLink
-                    to="/business-visa"
+                    to="/filterVisa?visaType=Official-Visa"
                     className={({ isActive }) =>
                       isActive
                         ? " text-[#E3F2FD] px-4 py-2 rounded"
@@ -86,7 +95,7 @@ const Header = () => {
                 </li>
               </ul>
             </details>
-          </li>
+          </li> */}
           <li>
             <NavLink to="/addVisa" className={({ isActive }) =>
               isActive
@@ -106,7 +115,7 @@ const Header = () => {
               }
 
             >
-              My Visas
+              My Added Visas
             </NavLink>
           </li>
           <li className="">
@@ -119,7 +128,7 @@ const Header = () => {
               }
 
             >
-              My Applications
+              My Visa Applications
             </NavLink>
           </li>
         </ul>
@@ -170,7 +179,16 @@ const Header = () => {
                         Home
                       </NavLink>
                     </li>
-                    <li className="relative">
+                    <li>
+            <NavLink to="/allVisa" className={({ isActive }) =>
+              isActive
+                ? " text-gray-600 px-4 py-2 "
+                : "text-[#e20934]  "
+            } >
+              All Visa
+            </NavLink>
+          </li>
+                    {/* <li className="relative">
                       <details className="group">
                         <summary className="cursor-pointer" >
                           <NavLink to="/allVisa"
@@ -224,7 +242,7 @@ const Header = () => {
                           </li>
                         </ul>
                       </details>
-                    </li>
+                    </li> */}
                     <li>
                       <NavLink to="/addVisa" className={({ isActive }) =>
                         isActive

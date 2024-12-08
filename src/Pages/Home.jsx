@@ -7,7 +7,7 @@ import VisaCards from "../Components/VisaCards";
 
 const Home = () => {
       return (
-            <div className="bg-black">
+            <div className="">
                   <Banner></Banner>
                   <AboutUs></AboutUs>
                   

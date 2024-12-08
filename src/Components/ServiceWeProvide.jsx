@@ -30,7 +30,7 @@ const ServiceWeProvide = () => {
       // }, []);
 
       return (
-            <section className="bg-black py-16" data-aos="fade-up">
+            <section className=" py-16" data-aos="fade-up">
                   <div className="container mx-auto px-6 text-center">
                         <h2 className="text-4xl font-bold text-[#e20934] mb-12">Services We Provide</h2>
 
@@ -38,7 +38,7 @@ const ServiceWeProvide = () => {
                               {services.map((service, index) => (
                                     <div
                                           key={index}
-                                          className="relative bg-white p-6 rounded-lg shadow-lg overflow-hidden group transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-[#e20934]"
+                                          className="relative bg-white p-6 rounded-lg shadow-lg overflow-hidden group transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:bg-[#e20934] border-2 border-[#e20934]"
                                           data-aos="zoom-in"
                                     >
                                           {/* Image */}

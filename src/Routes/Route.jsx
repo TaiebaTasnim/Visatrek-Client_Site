@@ -13,6 +13,7 @@ import VisaDetails from "../Pages/VisaDetails";
 import MyVisas from "../Pages/MyVisas";
 import MyApplications from "../Pages/MyApplications";
 import ErrorPage from "../Pages/ErrorPage";
+import FilterVisa from "../Pages/FilterVisa";
 
     const Route = createBrowserRouter([
       {
@@ -33,6 +34,10 @@ import ErrorPage from "../Pages/ErrorPage";
             {
                   path:"/login",
                   element:<Login></Login>
+            },
+            {
+                  path:"/fiterVisa",
+                  element:<FilterVisa></FilterVisa>
             },
             {
                   path:"/addVisa",

@@ -3,6 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
+import { FaGoogle } from "react-icons/fa";
+import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { auth } from "../Firebase/firebase.config";
 
 
 const Register = () => {
@@ -10,8 +13,21 @@ const Register = () => {
       const [success,setSuccess]=useState(false)
       const [errorMsg,setErrorMsg]=useState('')
       const [show,setShow]=useState(false)
+      const provider=new GoogleAuthProvider()
       
       const navigate=useNavigate()
+      const handleSignup=()=>{
+        signInWithPopup(auth,provider)
+        .then((result)=>{
+          
+          //console.log(result)
+          //setUser(result.user)
+    
+        }).catch(error=>{
+          //console.log('error:',error)
+          //setUser(null)
+        });
+      }
 
       const handleregister=(e)=>
             {
@@ -175,6 +191,12 @@ const Register = () => {
             </span>
           </p>
         </form>
+        <div className="divider mt-0">OR</div>
+        <div onClick={handleSignup}  className="flex justify-center items-center py-3 rounded-lg px-4 border-[#e20934] border-2 text-white font-bold  gap-3 mb-4 mx-3">
+        <FaGoogle className="text-[#e20934]"></FaGoogle>
+        <button className=""> Login with Google</button>
+
+        </div>
       </div>
     </div>
 //             <div>
