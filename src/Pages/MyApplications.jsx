@@ -9,6 +9,7 @@ const MyApplications = () => {
       const {user}=useContext(AuthContext)
       //const loadedApp=useLoaderData()
       const [myApp,setmyApp]=useState([])
+      const [search,setSearch]=useState("")
       //console.log(loadedApp)
       useEffect(()=>{
             fetch("http://localhost:4000/application")
@@ -20,6 +21,19 @@ const MyApplications = () => {
                   console.log(targetApp)
             })
       },[])
+      const handleChange=(e)=>{
+        setSearch(e.target.value)
+
+      }
+      const handleSearch=()=>{
+        console.log(search)
+        fetch(`http://localhost:4000/application?searchCountry=${search}`)
+        .then(res=>res.json())
+        .then(data=>{
+          const filteredApps = data.filter((app) => app.email === user.email); // Ensure filtering by user email
+          setmyApp(filteredApps);
+        })
+      }
 
       const handleCancel = (id) => {
             console.log(id)
@@ -81,16 +95,18 @@ const MyApplications = () => {
     <input
       type="text"
       placeholder="Search by Country name..."
+      onChange={handleChange}
       className="px-4 py-2 w-3/4 sm:w-1/2 lg:w-1/3 rounded-l-lg bg-gray-700 text-white border border-gray-600 focus:outline-none"
     />
-    <button className="px-6 py-2 bg-[#e20934] text-white rounded-r-lg font-semibold hover:bg-black hover:text-[#e20934] border-[#e20934] border transition duration-300">
+    <button onClick={handleSearch}
+     className="px-6 py-2 bg-[#e20934] text-white rounded-r-lg font-semibold hover:bg-black hover:text-[#e20934] border-[#e20934] border transition duration-300">
       Search
     </button>
   </div>
   <div  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
     data-aos="fade-up"
     data-aos-duration="1200">
-      {
+      { myApp.length>0?(
             myApp.map((app,index)=>(
                   <div
         key={app._id}
@@ -155,7 +171,20 @@ const MyApplications = () => {
         </div>
       </div>
             ))
-      }
+          ):(
+            
+              <div >
+               <p className=" text-center text-gray-300 text-2xl mt-10">No applications found for your search.</p>
+
+            </div>
+            
+            
+
+           
+          )
+          
+          }
+      
   </div>
   </div>
 

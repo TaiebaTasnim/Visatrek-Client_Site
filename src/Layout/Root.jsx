@@ -4,6 +4,7 @@ import Register from "../Pages/Register";
 import Footer from "../Components/Footer";
 import { useEffect } from "react";
 import AOS from "aos";
+import { Typewriter } from 'react-simple-typewriter';
 
 
 

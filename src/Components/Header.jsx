@@ -6,6 +6,7 @@ import icon from '../assets/icon.png'
 //import { Tooltip as ReactTooltip } from "react-tooltip";
 import "react-tooltip/dist/react-tooltip.css";
 import { Tooltip as ReactTooltip } from "react-tooltip";
+import { Typewriter } from "react-simple-typewriter";
 
 
 
@@ -80,7 +81,7 @@ const Header = () => {
                     }
 
                   >
-                    Business Visa
+                    Official Visa
                   </NavLink>
                 </li>
               </ul>
@@ -218,7 +219,7 @@ const Header = () => {
                               }
 
                             >
-                              Business Visa
+                              Official Visa
                             </NavLink>
                           </li>
                         </ul>
@@ -268,9 +269,16 @@ const Header = () => {
             </div>
             <div className="flex items-center gap-1">
               {/* <img src={icon} alt="" className="w-4 h-4 hidden md:block" /> */}
-              <a className=" normal-case text-2xl font-bold tracking-wide font-display ">
-                Visatrek
-              </a>
+              <a className="normal-case text-2xl font-bold tracking-wide font-display">
+              <Typewriter
+      words={['Visatrek']}
+      loop={false} 
+      cursor
+      cursorStyle="|"
+      typeSpeed={80} 
+      deleteSpeed={50} 
+    />
+    </a>
 
             </div>
 
