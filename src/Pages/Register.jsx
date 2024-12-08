@@ -19,6 +19,7 @@ const Register = () => {
       const handleSignup=()=>{
         signInWithPopup(auth,provider)
         .then((result)=>{
+          navigate('/')
           
           //console.log(result)
           //setUser(result.user)
@@ -53,7 +54,7 @@ const Register = () => {
                   setSuccess(true)
                   const newUser={name,email,photo}
                   //set newUser to DB
-                  fetch('http://localhost:4000/users',{
+                  fetch('https://visatrek-server-site.vercel.app/users',{
                         method:'Post',
                         headers:{
                               'content-type':'application/json'
@@ -191,7 +192,7 @@ const Register = () => {
             </span>
           </p>
         </form>
-        <div className="divider mt-0">OR</div>
+        <div className="divider mt-0 text-[#e20934]">OR</div>
         <div onClick={handleSignup}  className="flex justify-center items-center py-3 rounded-lg px-4 border-[#e20934] border-2 text-white font-bold  gap-3 mb-4 mx-3">
         <FaGoogle className="text-[#e20934]"></FaGoogle>
         <button className=""> Login with Google</button>

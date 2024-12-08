@@ -53,7 +53,7 @@ const MyVisas = () => {
       // };
       const handleUpdateSubmit = (e) => {
             e.preventDefault();
-            fetch(`http://localhost:4000/visas/${selectedVisaId}`, {
+            fetch(`https://visatrek-server-site.vercel.app/visas/${selectedVisaId}`, {
               method: "PUT",
               headers: { "Content-Type": "application/json" },
               body: JSON.stringify(formData),
@@ -94,7 +94,7 @@ const MyVisas = () => {
                   .then((result) => {
                         if (result.isConfirmed) {
 
-                              fetch(`http://localhost:4000/visas3/${id}`, {
+                              fetch(`https://visatrek-server-site.vercel.app/visas3/${id}`, {
                                     method: "Delete",
                               })
                                     .then(res => res.json())

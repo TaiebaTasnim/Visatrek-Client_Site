@@ -19,13 +19,13 @@ import FilterVisa from "../Pages/FilterVisa";
       {
         path: "/",
         element: <Root></Root>,
-        //loader:()=>fetch("http://localhost:4000/users"),
+        //loader:()=>fetch("https://visatrek-server-site.vercel.app/users"),
         errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                   path:"/",
                   element:<Home></Home>,
-                  loader:()=>fetch("http://localhost:4000/visas")
+                  loader:()=>fetch("https://visatrek-server-site.vercel.app/visas")
             },
             {
                   path:"/register",
@@ -49,35 +49,35 @@ import FilterVisa from "../Pages/FilterVisa";
             {
                   path:"/allVisa",
                   element:<AllVisa></AllVisa>,
-                  loader:()=>fetch("http://localhost:4000/visas1")
+                  loader:()=>fetch("https://visatrek-server-site.vercel.app/visas1")
             },
             {
                   path:"/visaDetails/id",
                   element:<PrivateRoute>
                            <VisaDetails></VisaDetails>
                           </PrivateRoute>,
-                  loader:({params})=>fetch(`http://localhost:4000/visas4/${params.id}`)
+                  loader:({params})=>fetch(`https://visatrek-server-site.vercel.app/visas4/${params.id}`)
             },
             {
                   path:"/visaDetails/:id",
                   element:<PrivateRoute>
                            <VisaDetails></VisaDetails>
                           </PrivateRoute>,
-                  loader:({params})=>fetch(`http://localhost:4000/visas/${params.id}`)
+                  loader:({params})=>fetch(`https://visatrek-server-site.vercel.app/visas/${params.id}`)
             },
             {
                   path:"/myVisas/:email",
                   element:<PrivateRoute>
                            <MyVisas></MyVisas>
                           </PrivateRoute>,
-                  loader:({params})=>fetch(`http://localhost:4000/visas2/${params.email}`)
+                  loader:({params})=>fetch(`https://visatrek-server-site.vercel.app/visas2/${params.email}`)
             },
             {
                   path:"/myVisaApp",
                   element:<PrivateRoute>
                            <MyApplications></MyApplications>
                           </PrivateRoute>,
-                  //loader:()=>fetch("http://localhost:4000/application")
+                  //loader:()=>fetch("https://visatrek-server-site.vercel.app/application")
             },
             
         ]

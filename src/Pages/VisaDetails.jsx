@@ -29,7 +29,7 @@ const VisaDetails = () => {
 
             
                   // Use fetch to send the form data to the backend
-                  fetch('http://localhost:4000/application', {
+                  fetch('https://visatrek-server-site.vercel.app/application', {
                         method: 'POST',
                         headers: {
                               'Content-Type': 'application/json',

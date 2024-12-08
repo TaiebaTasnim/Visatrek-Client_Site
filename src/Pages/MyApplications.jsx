@@ -12,7 +12,7 @@ const MyApplications = () => {
       const [search,setSearch]=useState("")
       //console.log(loadedApp)
       useEffect(()=>{
-            fetch("http://localhost:4000/application")
+            fetch("https://visatrek-server-site.vercel.app/application")
             .then(res=>res.json())
             .then(data=>{
                   console.log(data)
@@ -27,7 +27,7 @@ const MyApplications = () => {
       }
       const handleSearch=()=>{
         console.log(search)
-        fetch(`http://localhost:4000/application?searchCountry=${search}`)
+        fetch(`https://visatrek-server-site.vercel.app/application?searchCountry=${search}`)
         .then(res=>res.json())
         .then(data=>{
           const filteredApps = data.filter((app) => app.email === user.email); // Ensure filtering by user email
@@ -49,7 +49,7 @@ const MyApplications = () => {
                   .then((result) => {
                         if (result.isConfirmed) {
 
-                              fetch(`http://localhost:4000/application/${id}`, {
+                              fetch(`https://visatrek-server-site.vercel.app/application/${id}`, {
                                     method: "Delete",
                               })
                                     .then(res => res.json())

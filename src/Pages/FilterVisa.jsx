@@ -18,7 +18,7 @@ const FilterVisa = () => {
   }, [visaType]);
 
   const fetchVisas = (visaType) => {
-    let url = "http://localhost:4000/visas5";
+    let url = "https://visatrek-server-site.vercel.app/visas5";
     if (visaType) {
       url += `?visaType=${visaType}`;
     }

@@ -49,7 +49,7 @@ const AboutUs = () => {
             <h2 className="text-3xl md:text-4xl font-semibold text-[#e20934] mb-6">
               Your Trusted Partner for Visa Solutions
             </h2>
-            <p className="text-gray-400 text-lg leading-relaxed mb-6"><strong>
+            <p className="text-gray-500 text-lg leading-relaxed mb-6"><strong>
             With years of expertise, we’ve guided countless clients in their
               visa and immigration journeys. Our platform ensures that you
               receive the best services, from tourist visas to business
