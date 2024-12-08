@@ -44,7 +44,7 @@ const AllVisa = () => {
             value={selectedVisaType}
             onChange={handleVisaTypeChange}
           >
-           
+             <option value="">All Visa</option>
             <option value="Student Visa">Student Visa</option>
             <option value="Tourist Visa">Tourist Visa</option>
             <option value="Official Visa">Official Visa</option>
@@ -53,7 +53,7 @@ const AllVisa = () => {
         <div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 px-4 py-6 bg-black "
         >
-          {allVisas.map((allVisa, index) => (
+          {filteredVisas.map((allVisa, index) => (
             <div
               key={allVisa._id}
               className="relative bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 border-[#e20934] border-2"
