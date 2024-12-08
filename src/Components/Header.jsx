@@ -262,7 +262,7 @@ const Header = () => {
                         }
 
                       >
-                        My Visas
+                        My Add Visas
                       </NavLink>
                     </li>
                     <li className="">
@@ -275,7 +275,7 @@ const Header = () => {
                         }
 
                       >
-                        My Applications
+                        My Visa Applications
                       </NavLink>
                     </li>
                   </ul>
