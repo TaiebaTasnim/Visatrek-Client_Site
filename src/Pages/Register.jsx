@@ -121,7 +121,7 @@ const Register = () => {
             <input
               type="text"
               placeholder="Your Name"
-              className="input input-bordered w-full bg-white bg-opacity-30 text-[#e20934]"
+              className="input input-bordered w-full bg-white bg-opacity-30 text-black"
               name="name"
               required
             />
@@ -133,7 +133,7 @@ const Register = () => {
             <input
               type="email"
               placeholder="Enter your email"
-              className="input input-bordered w-full bg-white bg-opacity-30 text-[#e20934]"
+              className="input input-bordered w-full bg-white bg-opacity-30 text-black"
               name="email"
               required
             />
@@ -145,7 +145,7 @@ const Register = () => {
             <input
               type="text"
               placeholder="Photo URL"
-              className="input input-bordered w-full bg-white bg-opacity-30 text-[#e20934]"
+              className="input input-bordered w-full bg-white bg-opacity-30 text-black"
               name="photo"
               required
             />
@@ -158,7 +158,7 @@ const Register = () => {
               type={show ? "text" : "password"}
               placeholder="Enter your password"
               name="password"
-              className="input input-bordered w-full bg-white bg-opacity-30 text-[#e20934]"
+              className="input input-bordered w-full bg-white bg-opacity-30 text-black"
               required
             />
             <button
