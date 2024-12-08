@@ -9,10 +9,11 @@ import { auth } from "../Firebase/firebase.config";
 
 
 const Register = () => {
-      const {createUser,profileUpdate}=useContext(AuthContext)
+      const {createUser,profileUpdate,setUser}=useContext(AuthContext)
       const [success,setSuccess]=useState(false)
       const [errorMsg,setErrorMsg]=useState('')
       const [show,setShow]=useState(false)
+
       const provider=new GoogleAuthProvider()
       
       const navigate=useNavigate()
@@ -69,7 +70,14 @@ const Register = () => {
                   e.target.reset
                   //navigate('/login')
                   profileUpdate({ displayName:name, photoURL:photo})
-                  .then(()=> console.log("profile updated"))
+                  .then(()=>{
+                    const updatedUser = {
+                      ...auth.currentUser, // Firebase's current user object
+                      displayName: name,
+                      photoURL: photo,
+                    };
+                    setUser(updatedUser); 
+                  } )
                   .catch(error=>{
                         setErrorMsg(error.message)
                         setSuccess(false)
