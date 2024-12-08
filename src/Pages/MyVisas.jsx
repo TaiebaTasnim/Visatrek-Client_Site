@@ -134,12 +134,15 @@ const MyVisas = () => {
 
   {/* Visa Cards */}
   <div
-    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+    className=""
     data-aos="fade-up"
     data-aos-duration="1200"
   >
-    {myVisas.map((myVisa, index) => (
-      <div
+    {
+      myVisas.length>0?(
+    myVisas.map((myVisa, index) => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+         <div
         key={myVisa._id}
         className="relative bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 border-2 border-[#e20934]"
         data-aos="fade-up"
@@ -193,7 +196,70 @@ const MyVisas = () => {
           </div>
         </div>
       </div>
-    ))}
+
+      </div>
+
+
+      // <div
+      //   key={myVisa._id}
+      //   className="relative bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 border-2 border-[#e20934]"
+      //   data-aos="fade-up"
+      //   data-aos-delay={index * 100}
+      // >
+      //   {/* Visa Image */}
+      //   <figure className="relative h-52 p-2 overflow-hidden">
+      //     <img
+      //       src={myVisa.country_image}
+      //       alt={myVisa.country_name}
+      //       className="w-full h-full object-cover rounded-lg"
+      //     />
+      //     <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+      //     <h2 className="absolute bottom-5 left-5 text-white text-2xl font-bold">
+      //       {myVisa.country_name}
+      //     </h2>
+      //   </figure>
+
+      //   {/* Visa Info */}
+      //   <div className="p-4">
+      //     <h3 className="text-[#e20934] text-lg font-semibold mb-2">
+      //       Visa Type: {myVisa.visa_type}
+      //     </h3>
+      //     <p className="text-gray-700 text-sm mb-1">
+      //       <strong>Processing Time:</strong> {myVisa.processing_time}
+      //     </p>
+      //     <p className="text-gray-700 text-sm mb-1">
+      //       <strong>Fee:</strong> ${myVisa.fee}
+      //     </p>
+      //     <p className="text-gray-700 text-sm mb-1">
+      //       <strong>Validity:</strong> {myVisa.validity}
+      //     </p>
+      //     <p className="text-gray-700 text-sm mb-4">
+      //       <strong>Application Method:</strong> {myVisa.application_method}
+      //     </p>
+
+      //     {/* Card Actions */}
+      //     <div className="flex justify-between mt-4">
+      //       <button
+      //         onClick={() => handleUpdateClick(myVisa)}
+      //         className="px-4 py-2 bg-[#e20934] text-white rounded-lg font-semibold hover:bg-black hover:text-[#e20934] border-[#e20934] border transition duration-300"
+      //       >
+      //         Update
+      //       </button>
+      //       <button
+      //         onClick={() => handleDelete(myVisa._id)}
+      //         className="px-4 py-2 bg-black text-[#e20934] rounded-lg font-semibold hover:bg-[#e20934] hover:text-white border-[#e20934] border transition duration-300"
+      //       >
+      //         Delete
+      //       </button>
+      //     </div>
+      //   </div>
+      // </div>
+    ))):(
+            
+      <div >
+       <p className=" text-center text-gray-300 text-2xl mt-24  ">No visas have been added yet.<br></br> Please check back later for updates!</p>
+
+    </div>)}
   </div>
 
   {/* Update Visa Modal */}

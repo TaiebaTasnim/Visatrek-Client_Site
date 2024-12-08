@@ -52,7 +52,7 @@ const Login = () => {
       
       signUser(email,password)
       .then(result=>
-        //console.log(result),
+        console.log(result),
         setSuccess(true),
         e.target.reset,
         navigate('/')
@@ -86,7 +86,7 @@ const Login = () => {
             <input
               type="email"
               placeholder="Enter your email"
-              className="input input-bordered w-full bg-white bg-opacity-30 text-[#e20934]"
+              className="input input-bordered w-full bg-white bg-opacity-30 text-black"
               name="email"
               required
             />
@@ -99,7 +99,7 @@ const Login = () => {
               type={show ? "text" : "password"}
               placeholder="Enter your password"
               name="password"
-              className="input input-bordered w-full bg-white bg-opacity-30 text-[#e20934]"
+              className="input input-bordered w-full bg-white bg-opacity-30 text-black"
               required
             />
             <button
@@ -122,7 +122,7 @@ const Login = () => {
           <button className="py-2 px-4 bg-[#e20934] text-white rounded-lg font-semibold transition duration-500 ease-in-out relative overflow-hidden group">
                   <span className="absolute inset-0 bg-gradient-to-r from-[#e20934] to-black opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
                   <span className="relative group-hover:text-white transition duration-500 ease-in-out">
-                    <Link to="/">LogIn</Link>
+                    <Link to="">LogIn</Link>
                   </span>
                 </button>
           </div>

@@ -103,12 +103,13 @@ const MyApplications = () => {
       Search
     </button>
   </div>
-  <div  className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+  <div  className=""
     data-aos="fade-up"
     data-aos-duration="1200">
       { myApp.length>0?(
             myApp.map((app,index)=>(
-                  <div
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                 <div
         key={app._id}
         className="relative bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 border-2 border-[#e20934]"
         data-aos="fade-up"
@@ -169,7 +170,70 @@ const MyApplications = () => {
             </button>
           </div>
         </div>
-      </div>
+                 </div>
+              </div>
+      //             <div
+      //   key={app._id}
+      //   className="relative bg-white rounded-lg shadow-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 border-2 border-[#e20934]"
+      //   data-aos="fade-up"
+      //   data-aos-delay={index * 100}
+      // >
+      //   {/* Visa Image */}
+      //   <figure className="relative h-48 overflow-hidden p-2">
+      //     <img
+      //       src={app.country_img}
+      //       alt={app.country}
+      //       className="w-full h-full object-cover rounded-lg"
+      //     />
+      //     <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+      //     <h2 className="absolute bottom-5 left-5 text-white text-2xl font-bold">
+      //       {app.country}
+      //     </h2>
+      //   </figure>
+
+      //   {/* Application Info */}
+      //   <div className="p-4">
+      //     <h3 className="text-[#e20934] text-lg font-semibold mb-2">
+      //       Visa Type: {app.visa_type}
+      //     </h3>
+      //     <p className="text-gray-700 text-sm mb-1">
+      //       <strong>Processing Time:</strong> {app.processing_time}
+      //     </p>
+      //     <p className="text-gray-700 text-sm mb-1">
+      //       <strong>Fee:</strong> ${app.fee}
+      //     </p>
+      //     <p className="text-gray-700 text-sm mb-1">
+      //       <strong>Validity:</strong> {app.validity}
+      //     </p>
+      //     <p className="text-gray-700 text-sm mb-1">
+      //       <strong>Application Method:</strong> {app.application_method}
+      //     </p>
+      //     <p className="text-gray-700 text-sm mb-1">
+      //       <strong>Applied Date:</strong> {app.appliedDate
+      //       }
+      //     </p>
+      //     <p className="text-gray-700 text-sm mb-1">
+      //       <strong>Applicant's Name:</strong>{" "}
+      //       {`${app.firstName} ${app.lastName}`}
+      //     </p>
+      //     <p className="text-gray-700 text-sm mb-4">
+      //       <strong>Applicant's Email:</strong> {app.email}
+      //     </p>
+
+      //     {/* Cancel Button */}
+      //     <div className="flex justify-end mt-4">
+      //     <button
+      //         onClick={() => handleCancel(app._id)}
+      //         className="flex items-center gap-2 py-3 px-6 bg-[#e20934] text-white rounded-lg font-semibold transition duration-500 ease-in-out relative overflow-hidden group">
+      //             <span className="absolute inset-0 bg-gradient-to-r from-[#e20934] to-black opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
+      //             <span className="relative group-hover:text-white transition duration-500 ease-in-out">
+            
+      //         Cancel
+      //         </span>
+      //       </button>
+      //     </div>
+      //   </div>
+      //            </div>
             ))
           ):(
             

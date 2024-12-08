@@ -291,7 +291,7 @@ const AddVisa = () => {
     <button className="w-full py-2 px-2 bg-[#e20934] text-white rounded-lg font-semibold transition duration-500 ease-in-out relative overflow-hidden group">
                   <span className="absolute inset-0 bg-gradient-to-r from-[#e20934] to-black opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
                   <span className="relative group-hover:text-white transition duration-500 ease-in-out">
-                    <Link to="/allVisa">Add Visa</Link>
+                    <Link to="">Add Visa</Link>
                   </span>
                 </button>
   </form>
