@@ -50,9 +50,12 @@ const Register = () => {
                 }
                 createUser(email,password)
                 .then(result=>{
+
                   
                   //console.log(result),
                   setSuccess(true)
+                  e.target.reset,
+                  navigate('/')
                   const newUser={name,email,photo}
                   //set newUser to DB
                   fetch('https://visatrek-server-site.vercel.app/users',{
