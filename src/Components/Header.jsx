@@ -17,7 +17,7 @@ import { Typewriter } from "react-simple-typewriter";
 const Header = () => {
   const { user, signout } = useContext(AuthContext)
 
-  console.log(user)
+  //console.log(user)
 
   const links =
     <>

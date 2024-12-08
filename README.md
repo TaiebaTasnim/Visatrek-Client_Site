@@ -2,7 +2,7 @@
 Visatrek-A Visa Navigator Website
 
 # Live Link
-<https://lingo-bingo-29fcc.web.app/>
+<https://visatrek-fcf97.web.app/>
 
 # Key Features
 1.**Dynamic Visa Search and Filter:**
