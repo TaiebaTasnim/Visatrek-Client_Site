@@ -50,7 +50,7 @@ const AddVisa = () => {
 
         // Create a payload to send
         const newVisaData = { ...formData, email};
-        console.log(newVisaData)
+        //console.log(newVisaData)
 
         
             // Use fetch to send the form data to the backend

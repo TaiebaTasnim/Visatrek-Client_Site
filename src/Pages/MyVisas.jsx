@@ -75,13 +75,16 @@ const MyVisas = () => {
                   document.getElementById("my_modal_5").close();
                 }
               })
-              .catch((error) => console.error("Error updating visa:", error));
+              .catch((error) =>{
+                //console.error("Error updating visa:", error)
+
+              }) ;
           };
       
         
 
       const handleDelete = (id) => {
-            console.log(id)
+            //console.log(id)
             Swal.fire({
                   title: "Are you sure?",
                   text: "You won't be able to revert this!",
@@ -100,7 +103,7 @@ const MyVisas = () => {
                                     .then(res => res.json())
                                     .then(data => {
                                           if (data.deletedCount > 0) {
-                                                console.log(data)
+                                                //console.log(data)
                                                 Swal.fire({
                                                       title: "Deleted!",
                                                       text: "Your visa has been deleted.",
@@ -108,7 +111,7 @@ const MyVisas = () => {
                                                 });
 
                                                 const remainning = myVisas.filter(visa => visa._id !== id);
-                                                console.log("remainning:", remainning)
+                                                //console.log("remainning:", remainning)
                                                 setMyVisas(remainning)
 
                                           }

@@ -15,10 +15,10 @@ const MyApplications = () => {
             fetch("https://visatrek-server-site.vercel.app/application")
             .then(res=>res.json())
             .then(data=>{
-                  console.log(data)
+                  //console.log(data)
                   const targetApp=data.filter(app=>app.email===user.email)
                   setmyApp(targetApp)
-                  console.log(targetApp)
+                  //console.log(targetApp)
             })
       },[])
       const handleChange=(e)=>{
@@ -36,7 +36,7 @@ const MyApplications = () => {
       }
 
       const handleCancel = (id) => {
-            console.log(id)
+           // console.log(id)
             Swal.fire({
                   title: "Are you sure?",
                   text: "You won't be able to revert this!",
@@ -55,7 +55,7 @@ const MyApplications = () => {
                                     .then(res => res.json())
                                     .then(data => {
                                           if (data.deletedCount > 0) {
-                                                console.log(data)
+                                                //console.log(data)
                                                 Swal.fire({
                                                       title: "Deleted!",
                                                       text: "Your application has been deleted.",
@@ -63,7 +63,7 @@ const MyApplications = () => {
                                                 });
 
                                                 const remainning = myApp.filter(app => app._id !== id);
-                                                console.log("remainning:", remainning)
+                                                //console.log("remainning:", remainning)
                                                 setmyApp(remainning)
 
                                           }

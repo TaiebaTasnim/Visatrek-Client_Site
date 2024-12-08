@@ -24,7 +24,7 @@ const VisaDetails = () => {
             const processing_time = loadedVisa?.processing_time;
             const application_method = loadedVisa?.application_method;
             const myVisaMail = loadedVisa?.email;
-            console.log(email, firstName, lastName, appliedDate, fee, processing_time, myVisaMail)
+            //console.log(email, firstName, lastName, appliedDate, fee, processing_time, myVisaMail)
             const newApplication = { email, firstName, lastName, appliedDate, fee, country, country_img, validity, visa_type, processing_time, application_method, myVisaMail }
 
             
@@ -38,7 +38,7 @@ const VisaDetails = () => {
                   })
                   .then(res=>res.json())
             .then(data=>{
-                console.log(data)
+                //console.log(data)
                 if(data.insertedId)
                 {
                     Swal.fire({

@@ -5,7 +5,7 @@ import { useSearchParams } from "react-router-dom";
 const FilterVisa = () => {
       const [visas, setVisas] = useState([]);
   const [searchParams] = useSearchParams();
-  console.log(searchParams)
+  //console.log(searchParams)
   const decodeVisaType = (visaType) => {
       return visaType?.replace("-", " "); 
     };
@@ -22,15 +22,17 @@ const FilterVisa = () => {
     if (visaType) {
       url += `?visaType=${visaType}`;
     }
-    console.log("Fetching URL:", url);
+    //console.log("Fetching URL:", url);
 
     fetch(url)
       .then((res) => res.json())
       .then((data) => {
-            console.log(data)
+            //console.log(data)
             
             setVisas(data)})
-      .catch((error) => console.error("Error fetching visas:", error));
+      .catch((error) => {
+           // console.log(error)
+      });
   };
       return (
             <div>
