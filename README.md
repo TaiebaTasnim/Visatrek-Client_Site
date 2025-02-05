@@ -1,8 +1,8 @@
-# Project Name
-Visatrek-A Visa Navigator Website
+#Visatrek-A Visa Navigator Website
+
 
 ![VisaTrek Screenshot](https://i.ibb.co.com/39PP2YZj/Screenshot-306.png)
-A modern web application designed to streamline visa tracking, document management, and real-time updates for travelers.
+A modern web application designed to streamline visa tracking, document management, and real-time updates for travelers.It offers search for visas, track applications,apply for visa and access detailed visa information.
 
 ## 🚀 Features
 
