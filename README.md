@@ -4,16 +4,26 @@
 ![VisaTrek Screenshot](https://i.ibb.co.com/39PP2YZj/Screenshot-306.png)
 A modern web application designed to streamline visa tracking, document management, and real-time updates for travelers.It offers search for visas, track applications,apply for visa and access detailed visa information.
 
-## 🚀 Features
+# Key Features
+1.**Dynamic Visa Search and Filter:**
+  * Advanced filtering options based on visa type, country, and application status.
+  * Search functionality with auto-suggestions for visa categories or countries.
+2.**Visa Application Tracking:**
+  * Users can track their application status in real-time.
+3.**Comprehensive Visa Information:**
+  * Detailed pages for each visa type with requirements, fees, and processing times.
 
-- **User Authentication:** Secure login and signup via Firebase.
-- **Visa Tracking:** Stay updated with real-time visa application progress.
-- **Interactive UI Animations:** Smooth transitions using AOS and Animate.css.
-- **Efficient Sorting & Filtering:** Powered by Match-sorter and Sort-by.
-- **Responsive UI:** Styled with Tailwind CSS and DaisyUI.
-- **Customizable Alerts:** Enhanced user notifications with SweetAlert2.
-- **Smooth Typing Effects:** Realistic text animation using React Simple Typewriter.
-- **Swiper Integration:** Interactive carousels and sliders.
+4.**User Authentication and Profiles:**
+  * Secure user registration and login system with Firebase authentication.
+  * Profile update feature to personalize the user experience, including the ability to set a display name and profile photo.
+
+5.**Responsive Design:**
+
+ * A clean and responsive user interface that works across devices, offering accessibility     on desktops, tablets, and smartphones.
+
+6.**Engaging Feedback System:**
+
+ * Success and error messages displayed dynamically to guide users during interactions, such as login, Visa add, and Visa update,delete etc.
 
 ## 🛠️ Technologies Used
 
